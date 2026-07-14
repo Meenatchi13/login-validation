@@ -2,16 +2,19 @@
 $file="details.json";
 $jsondetails=file_get_contents($file);
 $data=json_decode($jsondetails,true);
+$name1=$_POST["name1"];
+$name2=$_POST["name2"];
 $email=$_POST["email"];
-    if(str_ends_with($email,"@gmail.com"))
+$password=$_POST["password"];
+    if(filter_var($email,FILTER_VALIDATE_EMAIL))
         {
             if(in_array($email,$data))
                 {
-                    echo "Email already exits";
+                    echo "Email already exists";
                 }
                 else
                     {
-                     $data[]=$email;
+                     $data[]=["Firstname"=>$name1,"Lastname"=>$name2,"email"=>$email,"password"=>$password];
                      $jsondata=json_encode($data,JSON_PRETTY_PRINT);
                      file_put_contents($file,$jsondata);
                      echo" Email stored successfully";
