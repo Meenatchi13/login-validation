@@ -12,7 +12,7 @@ $password=$_POST["password"];
                 {
                     echo "Email already exists";
                 }
-                if((strlen($password)!==8))
+                elseif(strlen($password)!==8)
                     {
                        echo "Password must be exactly 8 characters";
                     }

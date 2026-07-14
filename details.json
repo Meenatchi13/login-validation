@@ -16,5 +16,11 @@
         "Lastname": "kim",
         "email": "jin@gmail.com",
         "password": "btsjin92"
+    },
+    {
+        "Firstname": "jimin",
+        "Lastname": "park",
+        "email": "jimin@gmail.com",
+        "password": "jimin95!"
     }
 ]
