@@ -6,13 +6,16 @@ $name1=$_POST["name1"];
 $name2=$_POST["name2"];
 $email=$_POST["email"];
 $password=$_POST["password"];
+$emails=array_column($data,"email");
     if(filter_var($email,FILTER_VALIDATE_EMAIL))
         {
-            if(in_array($email,$data))
+            if(in_array($email,$emails))
                 {
                     echo "Email already exists";
                 }
-                elseif(strlen($password)!==8)
+                else
+                {
+                if(strlen($password)!==8)
                     {
                        echo "Password must be exactly 8 characters";
                     }
@@ -23,6 +26,7 @@ $password=$_POST["password"];
                      file_put_contents($file,$jsondata);
                      echo" Email stored successfully";
                     }
+                }
         }
         
     else
