@@ -16,5 +16,11 @@
         "Lastname": "kim",
         "email": "jin@gmail.com",
         "password": "btsjin92"
+    },
+    {
+        "Firstname": "jk",
+        "Lastname": "jeon",
+        "email": "jk@gmail.com",
+        "password": "12345678"
     }
 ]

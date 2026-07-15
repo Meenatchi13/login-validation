@@ -33,7 +33,7 @@ $emails=array_column($data,"email");
         {
             echo"Not valid";
         }
-        
-
+header("location:index.html");
+exit;        
     
 ?>
