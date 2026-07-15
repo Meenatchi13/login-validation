@@ -21,6 +21,7 @@ foreach($data as $user)
         else{
             echo "Invalid email or password";
         }
-header("location:welcome.html");        
+header("location:welcome.html");   
+exit;     
 
 ?>        

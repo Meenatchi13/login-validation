@@ -32,8 +32,6 @@ $emails=array_column($data,"email");
     else
         {
             echo"Not valid";
-        }
-header("location:index.html");
-exit;        
+        }      
     
 ?>
