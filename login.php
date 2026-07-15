@@ -10,7 +10,6 @@ foreach($data as $user)
         if($user["email"]==$email && $user["password"]==$password)
             {
                 $found=true;
-                $log=$user["Firstname"];
                 break;
             }
     }
