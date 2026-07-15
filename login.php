@@ -1,39 +1,26 @@
 <?php
 $file="details.json";
-$jsondetails=file_get_contents($file);
-$data=json_decode($jsondetails,true);
-$name1=$_POST["name1"];
-$name2=$_POST["name2"];
+$details=file_get_contents($file);
+$data=json_decode($details,true);
 $email=$_POST["email"];
 $password=$_POST["password"];
-$emails=array_column($data,"email");
-    if(filter_var($email,FILTER_VALIDATE_EMAIL))
+$found=false;
+foreach($data as $user)
+    {
+        if($user["email"]==$email && $user["password"]==$password)
+            {
+                $found=true;
+                $log=$user["Firstname"];
+                break;
+            }
+    }
+    if($found)
         {
-            if(in_array($email,$emails))
-                {
-                    echo "Email already exists";
-                }
-                else
-                {
-                if(strlen($password)!==8)
-                    {
-                       echo "Password must be exactly 8 characters";
-                    }
-                else
-                    {
-                     $data[]=["Firstname"=>$name1,"Lastname"=>$name2,"email"=>$email,"password"=>$password];
-                     $jsondata=json_encode($data,JSON_PRETTY_PRINT);
-                     file_put_contents($file,$jsondata);
-                     echo" Email stored successfully";
-                    }
-                }
+            echo "Login successfull, welcome"."<br>". $log ."<br>";
         }
-        
-    else
-        {
-            echo"Not valid";
+        else{
+            echo "Invalid email or password";
         }
-header("location:index.html");
-exit;        
-    
-?>
+header("location:welcome.html");        
+
+?>        
