@@ -16,12 +16,12 @@ foreach($data as $user)
     }
     if($found)
         {
-            echo "Login successfull, welcome"."<br>". $log ."<br>";
+            header("location:welcome.html");               
+            exit;     
+           
         }
         else{
             echo "Invalid email or password";
         }
-header("location:welcome.html");   
-exit;     
 
 ?>        
